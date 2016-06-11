@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+    <title>{% block title %}Welcome{% endblock %}</title>
+
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="{{ asset('materializecss/css/materialize.css') }}" type="text/css" rel="stylesheet"
+          media="screen,projection"/>
+    <link href="{{ asset('materializecss/css/style.css') }}" type="text/css" rel="stylesheet"
+          media="screen,projection"/>
+</head>
+<body>
+<nav class="white" role="navigation">
+    <div class="nav-wrapper container">
+        <a id="logo-container" href="#" class="brand-logo">Logo</a>
+        <ul class="right hide-on-med-and-down">
+            {% if app.user %}
+                <li>
+                    <a id='#'>Profile</a>
+                </li>
+                <li>
+                    <a id='#'>Courses</a>
+                </li>
+                <li><a href="{{ path('fos_user_security_logout') }}">Logout</a></li>
+            {% else %}
+                <li>
+                    <a id='launcherLogin' class="waves-effect waves-light btn modal-trigger" href="#login">Login</a>
+                </li>
+                <li>
+                    <a id='launcherRegister' class="waves-effect waves-light btn modal-trigger" href="#register">Register</a>
+                </li>
+            {% endif %}
+        </ul>
+        <ul id="nav-mobile" class="side-nav">
+            {% if app.user %}
+                <li>
+                    <a id='#'>Profile</a>
+                </li>
+                <li>
+                    <a id='#'>Courses</a>
+                </li>
+                <li><a href="{{ path('fos_user_security_logout') }}">Logout</a></li>
+            {% else %}
+                <li>
+                    <a id='launcherLogin' data-toggle="modal" data-target="#login-modal">
+                        Login
+                    </a>
+                </li>
+                <li>
+                    <a id='launcherRegister' data-toggle="modal" data-target="#register-modal">
+                        Register
+                    </a>
+                </li>
+            {% endif %}
+
+        </ul>
+        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+</nav>
+{% block loginModal %}
+    <div id="login" class="modal">
+        <div class="modal-content">
+            <h4 class="center">Login</h4>
+            <div class="row">
+                <div id="loginError"></div>
+                {% include "@FOSUser/Security/login.html.twig" %}
+            </div>
+            <div class="modal-social-icons">
+                <a href='{{ path('hwi_oauth_service_redirect', {'service': 'facebook' }) }}'
+                   class="btn btn-default facebook"> <i
+                            class="fa fa-facebook modal-icons"></i>
+                    Sign In with Facebook </a>
+
+                <a href='{{ path('hwi_oauth_service_redirect', {'service': 'google' }) }}'
+                   class="btn btn-default google"> <i
+                            class="fa fa-google-plus modal-icons"></i> Sign In with Google </a>
+            </div>
+        </div>
+        {#<div class="modal-footer">
+            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+        </div>#}
+    </div>
+{% endblock %}
+{% block registerModal %}
+    <div id="register" class="modal">
+        <div class="modal-content">
+            <h4 class="center">Register</h4>
+            <div id="registerError"></div>
+            {% include "@FOSUser/Registration/register.html.twig" %}
+            <div class='modal-body-right'>
+                <div class="modal-social-icons">
+                    <a href='{{ path('hwi_oauth_service_redirect', {'service': 'facebook' }) }}'
+                       class="btn btn-default facebook"> <i
+                                class="fa fa-facebook modal-icons"></i>
+                        Sign In with Facebook </a>
+
+                    <a href='{{ path('hwi_oauth_service_redirect', {'service': 'google' }) }}'
+                       class="btn btn-default google"> <i
+                                class="fa fa-google-plus modal-icons"></i> Sign In with Google </a>
+                </div>
+            </div>
+        </div>
+        {#<div class="modal-footer">
+            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+        </div>#}
+    </div>
+{% endblock %}
+{#{% block body %}
+    {% block login %}
+        <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header login_modal_header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h2 class="modal-title" id="myModalLabel">Login</h2>
+                    </div>
+                    <div class="modal-body login-modal" id="loginResult">
+                        <p>Stack Overflow is a question and answer site for professional and enthusiast programmers.
+                            It's 100% free, no registration required</p>
+                        <br/>
+
+                        <div class="clearfix"></div>
+                        <div id='social-icons-conatainer'>
+                            <div class='modal-body-left'>
+                                <div id="loginError"></div>
+                                {% include "@FOSUser/Security/login.html.twig" %}
+                            </div>
+
+                            <div class='modal-body-right'>
+                                <div class="modal-social-icons">
+                                    <a href='{{ path('hwi_oauth_service_redirect', {'service': 'facebook' }) }}'
+                                       class="btn btn-default facebook"> <i
+                                                class="fa fa-facebook modal-icons"></i>
+                                        Sign In with Facebook </a>
+
+                                    <a href='{{ path('hwi_oauth_service_redirect', {'service': 'google' }) }}'
+                                       class="btn btn-default google"> <i
+                                                class="fa fa-google-plus modal-icons"></i> Sign In with Google </a>
+                                </div>
+                            </div>
+                            <div id='center-line'> OR</div>
+                        </div>
+                        <div class="clearfix"></div>
+
+                        <div class="form-group modal-register-btn">
+                            <button id="" class="btn btn-default">Register</button>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="modal-footer login_modal_footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+    {% block register %}
+        <div class="modal fade" id="register-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header login_modal_header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h2 class="modal-title" id="myModalLabel">Register</h2>
+                    </div>
+
+                    <div class="modal-body login-modal" id="regiBody">
+                        <p>Stack Overflow is a question and answer site for professional and enthusiast programmers.
+                            It's
+                            100% free, no registration required</p>
+                        <br/>
+
+                        <div class="clearfix"></div>
+                        <div id='social-icons-conatainer'>
+                            <div class='modal-body-left'>
+                                <div id="registerError"></div>
+                                {% include "@FOSUser/Registration/register.html.twig" %}
+                            </div>
+
+                            <div class='modal-body-right'>
+                                <div class="modal-social-icons">
+                                    <a href='{{ path('hwi_oauth_service_redirect', {'service': 'facebook' }) }}'
+                                       class="btn btn-default facebook"> <i
+                                                class="fa fa-facebook modal-icons"></i>
+                                        Sign In with Facebook </a>
+
+                                    <a href='{{ path('hwi_oauth_service_redirect', {'service': 'google' }) }}'
+                                       class="btn btn-default google"> <i
+                                                class="fa fa-google-plus modal-icons"></i> Sign In with Google </a>
+                                </div>
+                            </div>
+                            <div id='center-line'> OR</div>
+                        </div>
+                        <div class="clearfix"></div>
+
+                        <div class="form-group modal-register-btn">
+                            <button class="btn btn-default"> New User Please Register</button>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="modal-footer login_modal_footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+{% endblock %}#}
+{% block body %}
+    <div id="index-banner" class="parallax-container">
+        <div class="section no-pad-bot">
+            <div class="container">
+                <br><br>
+                <h1 class="header center teal-text text-lighten-2">Parallax Template</h1>
+                <div class="row center">
+                    <h5 class="header col s12 light">A modern responsive front-end framework based on Material
+                        Design</h5>
+                </div>
+                <div class="row center">
+                    <a href="http://materializecss.com/getting-started.html" id="download-button"
+                       class="btn-large waves-effect waves-light teal lighten-1">Get Started</a>
+                </div>
+                <br><br>
+
+            </div>
+        </div>
+        <div class="parallax"><img src="{{ asset('materializecss/images/background1.jpg') }}"
+                                   alt="Unsplashed background img 1"></div>
+    </div>
+
+
+    <div class="container">
+        <div class="section">
+
+            <!--   Icon Section   -->
+            <div class="row">
+                <div class="col s12 m4">
+                    <div class="icon-block">
+                        <h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
+                        <h5 class="center">Speeds up development</h5>
+
+                        <p class="light">We did most of the heavy lifting for you to provide a default stylings that
+                            incorporate our custom components. Additionally, we refined animations and transitions to
+                            provide a smoother experience for developers.</p>
+                    </div>
+                </div>
+
+                <div class="col s12 m4">
+                    <div class="icon-block">
+                        <h2 class="center brown-text"><i class="material-icons">group</i></h2>
+                        <h5 class="center">User Experience Focused</h5>
+
+                        <p class="light">By utilizing elements and principles of Material Design, we were able to create
+                            a framework that incorporates components and animations that provide more feedback to users.
+                            Additionally, a single underlying responsive system across all platforms allow for a more
+                            unified user experience.</p>
+                    </div>
+                </div>
+
+                <div class="col s12 m4">
+                    <div class="icon-block">
+                        <h2 class="center brown-text"><i class="material-icons">settings</i></h2>
+                        <h5 class="center">Easy to work with</h5>
+
+                        <p class="light">We have provided detailed documentation as well as specific code examples to
+                            help new users get started. We are also always open to feedback and can answer any questions
+                            a user may have about Materialize.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="parallax-container valign-wrapper">
+        <div class="section no-pad-bot">
+            <div class="container">
+                <div class="row center">
+                    <h5 class="header col s12 light">A modern responsive front-end framework based on Material
+                        Design</h5>
+                </div>
+            </div>
+        </div>
+        <div class="parallax"><img src="{{ asset('materializecss/images/background2.jpg') }}"
+                                   alt="Unsplashed background img 2"></div>
+    </div>
+
+    <div class="container">
+        <div class="section">
+
+            <div class="row">
+                <div class="col s12 center">
+                    <h3><i class="mdi-content-send brown-text"></i></h3>
+                    <h4>Contact Us</h4>
+                    <p class="left-align light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+                        scelerisque id nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna
+                        fermentum ac. Cras ut ultricies eros. Maecenas eros justo, ullamcorper a sapien id, viverra
+                        ultrices eros. Morbi sem neque, posuere et pretium eget, bibendum sollicitudin lacus. Aliquam
+                        eleifend sollicitudin diam, eu mattis nisl maximus sed. Nulla imperdiet semper molestie. Morbi
+                        massa odio, condimentum sed ipsum ac, gravida ultrices erat. Nullam eget dignissim mauris, non
+                        tristique erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
+                        Curae;</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="parallax-container valign-wrapper">
+        <div class="section no-pad-bot">
+            <div class="container">
+                <div class="row center">
+                    <h5 class="header col s12 light">A modern responsive front-end framework based on Material
+                        Design</h5>
+                </div>
+            </div>
+        </div>
+        <div class="parallax"><img src="{{ asset('materializecss/images/background3.jpg') }}"
+                                   alt="Unsplashed background img 3"></div>
+    </div>
+{% endblock %}
+{% block footer %}
+    <footer class="page-footer teal">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Company Bio</h5>
+                    <p class="grey-text text-lighten-4">We are a team of college students working on this project like
+                        it's our full time job. Any amount would help support and continue development on this project
+                        and is greatly appreciated.</p>
+
+
+                </div>
+                <div class="col l3 s12">
+                    <h5 class="white-text">Settings</h5>
+                    <ul>
+                        <li><a class="white-text" href="#!">Link 1</a></li>
+                        <li><a class="white-text" href="#!">Link 2</a></li>
+                        <li><a class="white-text" href="#!">Link 3</a></li>
+                        <li><a class="white-text" href="#!">Link 4</a></li>
+                    </ul>
+                </div>
+                <div class="col l3 s12">
+                    <h5 class="white-text">Connect</h5>
+                    <ul>
+                        <li><a class="white-text" href="#">Link 1</a></li>
+                        <li><a class="white-text" href="#">Link 2</a></li>
+                        <li><a class="white-text" href="#">Link 3</a></li>
+                        <li><a class="white-text" href="#">Link 4</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+            </div>
+        </div>
+    </footer>
+{% endblock %}
+{% block javascript %}
+    <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="{{ asset('materializecss/js/materialize.js') }}"></script>
+    <script src="{{ asset('materializecss/js/init.js') }}"></script>
+{% endblock %}
+{% block ajaxmodal %}
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+            $('.modal-trigger').leanModal();
+
+
+            $(".fos_user_registration_register").submit(function (e) {
+                e.preventDefault();
+                var values = {};
+                $('.fos_user_registration_register').serializeArray().forEach(function (field) {
+                    values[field.name] = field.value;
+                });
+                $.ajax({
+                    url: "{{ path('fos_user_registration_register') }}",
+                    data: values,
+                    type: 'post'
+                }).done(function (data) {
+                    $("#regiBody").html("<h3>You are successfully registered.</h3>");
+                    setTimeout(function () {
+                        window.location.reload(1);
+                    }, 2000);
+                }).fail(function (data) {
+                    var newHTML = $.map(data.responseJSON.message, function (value) {
+                        return ('<li>' + value + '</li>');
+                    });
+                    $("#registerError").html(newHTML);
+                });
+            });
+        });
+    </script>
+{% endblock %}
+</body>
+</html>

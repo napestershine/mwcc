@@ -1,0 +1,25 @@
+{% extends '@Admin/Default/index.html.twig' %}
+{% block pageheader %}Category :: {{ category.title }} {% endblock %}
+{% block container %}
+    <div>
+        <a class="btn btn-primary" href="{{ path('category_new') }}">Add New</a>
+        <a class="btn btn-warning" href="{{ path('category_edit', { 'id': category.id }) }}">Edit</a>
+        <a class="btn btn-info" href="{{ path('category_index') }}">Back</a>
+    </div>
+    <br/>
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>Id</th>
+            <th>Children</th>
+        </tr>
+        {% for child in category.children %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ child }}</td>
+            </tr>
+        {% endfor %}
+        <tr></tr>
+        </tbody>
+    </table>
+{% endblock %}
