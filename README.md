@@ -1,1 +1,1 @@
-A project which shows AJAX with FUB and HWIOAuthBundle integration.
+A symfony project created for testing
