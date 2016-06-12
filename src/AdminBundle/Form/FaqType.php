@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class AboutusType extends AbstractType
+class FaqType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -15,8 +15,8 @@ class AboutusType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('image')
-            ->add('content')
+            ->add('question')
+            ->add('answer')
         ;
     }
     
@@ -26,7 +26,7 @@ class AboutusType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AdminBundle\Entity\Aboutus'
+            'data_class' => 'AdminBundle\Entity\Faq'
         ));
     }
 }

@@ -13,3 +13,31 @@ admin_homepage:
 index:
     path:     /index
     defaults: { _controller: AdminBundle:Category:index }
+
+admin_aboutus:
+    resource: "@AdminBundle/Resources/config/routing/aboutus.yml"
+    prefix:   /aboutus
+
+admin_banner:
+    resource: "@AdminBundle/Resources/config/routing/banner.yml"
+    prefix:   /banner
+
+admin_contactus:
+    resource: "@AdminBundle/Resources/config/routing/contactus.yml"
+    prefix:   /contactus
+
+admin_dmca:
+    resource: "@AdminBundle/Resources/config/routing/dmca.yml"
+    prefix:   /dmca
+
+admin_faq:
+    resource: "@AdminBundle/Resources/config/routing/faq.yml"
+    prefix:   /faq
+
+admin_privacypolicy:
+    resource: "@AdminBundle/Resources/config/routing/privacypolicy.yml"
+    prefix:   /privacypolicy
+
+admin_terms:
+    resource: "@AdminBundle/Resources/config/routing/terms.yml"
+    prefix:   /terms

@@ -1,8 +1,7 @@
 {% extends 'adminbase.html.twig' %}
 
-{% block pageheader %}New About Us{% endblock %}
+{% block pageheader %}New Privacy Policy{% endblock %}
 {% block container %}
-
     {{ form_start(form) }}
         {{ form_widget(form) }}
         <input type="submit" value="Create" />
@@ -10,7 +9,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('aboutus_index') }}">Back to the list</a>
+            <a href="{{ path('privacypolicy_index') }}">Back to the list</a>
         </li>
     </ul>
 {% endblock %}
