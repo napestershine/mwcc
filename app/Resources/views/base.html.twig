@@ -19,10 +19,10 @@
         <ul class="right hide-on-med-and-down">
             {% if app.user %}
                 <li>
-                    <a id='#'>Profile</a>
+                    <a id='#' href="{{ path('fos_user_profile_show') }}">Profile</a>
                 </li>
                 <li>
-                    <a id='#'>Courses</a>
+                    <a id='#' href="{{ path('fos_user_change_password') }}">Change Password</a>
                 </li>
                 <li><a href="{{ path('fos_user_security_logout') }}">Logout</a></li>
             {% else %}
