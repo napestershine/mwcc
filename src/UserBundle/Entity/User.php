@@ -7,13 +7,13 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="fos_user")
+ * @ORM\Table(name="users")
+ * @ORM\InheritanceType("SINGLE_TABLE")
+ * @ORM\DiscriminatorColumn(name="discr", type="string")
+ * @ORM\DiscriminatorMap({"user" = "User", "vendor" = "Vendor", "member" = "Member"})
  */
 class User extends BaseUser
 {
-    const TMP_AVATAR_DIR = '/uploads/avatar/tmp/';
-    const AVATAR_DIR = '/uploads/avatar/';
-    const DEFAULT_AVATAR = '/uploads/default/abc.png';
 
     /**
      * @ORM\Id
@@ -97,11 +97,6 @@ class User extends BaseUser
      */
     protected $pinterest;
 
-    /**
-     * @ORM\Column(type="profil_image", type="string", length=255, nullable=true)
-     */
-    protected $profilImage;
-
 
     /** @ORM\Column(name="facebook_id", type="string", length=255, nullable=true) */
     protected $facebook_id;
@@ -120,6 +115,12 @@ class User extends BaseUser
 
     /** @ORM\Column(name="linkedin_access_token", type="string", length=255, nullable=true) */
     protected $linkedin_access_token;
+
+    /** @ORM\Column(name="twitter_id", type="string", length=255, nullable=true) */
+    protected $twitter_id;
+
+    /** @ORM\Column(name="twitter_access_token", type="string", length=255, nullable=true) */
+    protected $twitter_access_token;
 
     public function __construct()
     {
@@ -462,46 +463,6 @@ class User extends BaseUser
                     break;
             }
         }
-    }
-
-    public function getAvatar($size = null)
-    {
-        $prefix = is_null($size) ? '' : $size . '-';
-
-        return $this->profilImage ? self::AVATAR_DIR . $this->id . '/' . $prefix . $this->profilImage : self::DEFAULT_AVATAR;
-    }
-
-    public function getProfilImage()
-    {
-        return $this->profilImage;
-    }
-
-    public function setProfilImage($image)
-    {
-        $this->profilImage = $image;
-
-        return $this;
-    }
-
-    public function getAbsolutePath()
-    {
-        return null === $this->profilImage ? null : $this->getUploadRootDir() . '/' . $this->profilImage;
-    }
-
-    public function getWebPath()
-    {
-        return null === $this->profilImage ? null : $this->getUploadDir() . '/' . $this->profilImage;
-    }
-
-    protected function getUploadRootDir()
-    {
-        // le chemin absolu du répertoire où les documents uploadés doivent être sauvegardés
-        return __DIR__ . '/../../../../web/' . $this->getUploadDir();
-    }
-
-    protected function getUploadDir()
-    {
-        return 'uploads/users';
     }
 
     /**
