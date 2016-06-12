@@ -10,18 +10,12 @@
         <div class="col s6 min-height">
             <h4>About Us</h4>
             <ul class="collapsible popout" data-collapsible="accordion">
-                <li>
-                    <div class="collapsible-header">Who we are?</div>
-                    <div class="collapsible-body"><p>We are MCart.</p></div>
-                </li>
-                <li>
-                    <div class="collapsible-header">What we do?</div>
-                    <div class="collapsible-body"><p>Makes your wedding memorable.</p></div>
-                </li>
-                <li>
-                    <div class="collapsible-header">Why we do it?</div>
-                    <div class="collapsible-body"><p>To make it better.</p></div>
-                </li>
+                {% for a in about %}
+                    <li>
+                        <div class="collapsible-header">{{ a.title }}</div>
+                        <div class="collapsible-body"><p>{{ a.content }}</p></div>
+                    </li>
+                {% endfor %}
             </ul>
         </div>
     </div>

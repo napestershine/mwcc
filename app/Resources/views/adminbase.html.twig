@@ -37,8 +37,18 @@
             </div>
         </li>#}
         <li class="bold"><a href="{{ path('category_index') }}" class="waves-effect waves-teal">Category</a></li>
-        <li class="bold"><a href="{{ path('aboutus_index') }}" class="collapsible-header  waves-effect waves-teal">About
-                Us</a>
+        <li class="no-padding">
+            <ul class="collapsible collapsible-accordion">
+                <li class="bold"><a class="collapsible-header  waves-effect waves-teal">About Us</a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li><a href="{{ path('aboutus_new') }}">New About Us</a></li>
+                            <li><a href="{{ path('aboutus_index') }}">All About Us</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </li>
         <li class="bold"><a href="{{ path('contactus_index') }}" class="collapsible-header  waves-effect waves-teal">Contact
                 Us</a>
         <li class="bold"><a href="{{ path('banner_index') }}"

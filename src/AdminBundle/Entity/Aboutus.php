@@ -33,6 +33,14 @@ class Aboutus
 
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="title", type="text")
+     */
+    private $title;
+
+
+    /**
      * Get id
      *
      * @return int
@@ -65,5 +73,22 @@ class Aboutus
     {
         return $this->content;
     }
+
+    /**
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * @param string $title
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+    }
+
 }
 

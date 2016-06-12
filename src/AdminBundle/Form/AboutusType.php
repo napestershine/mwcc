@@ -15,7 +15,7 @@ class AboutusType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('content');
+        $builder->add('title')->add('content');
     }
 
     /**

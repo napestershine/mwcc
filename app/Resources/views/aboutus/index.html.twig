@@ -7,7 +7,7 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Image</th>
+                <th>Title</th>
                 <th>Content</th>
                 <th>Actions</th>
             </tr>
@@ -16,7 +16,7 @@
         {% for aboutus in aboutuses %}
             <tr>
                 <td><a href="{{ path('aboutus_show', { 'id': aboutus.id }) }}">{{ aboutus.id }}</a></td>
-                <td>{{ aboutus.image }}</td>
+                <td>{{ aboutus.title }}</td>
                 <td>{{ aboutus.content }}</td>
                 <td>
                     <ul>
