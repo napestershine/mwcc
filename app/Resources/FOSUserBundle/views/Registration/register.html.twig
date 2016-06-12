@@ -8,16 +8,39 @@
         <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
     {% endif %}
 </div>#}
-
-{% if app.request.hasPreviousSession %}
-    {% for type, messages in app.session.flashbag.all() %}
-        {% for message in messages %}
-            <div class="flash-{{ type }}">
-                {{ message }}
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="container">
+        {% if app.request.hasPreviousSession %}
+            {% for type, messages in app.session.flashbag.all() %}
+                {% for message in messages %}
+                    <div class="flash-{{ type }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endfor %}
+        {% endif %}
+        {% block fos_user_content %}
+            {% include "FOSUserBundle:Registration:register_content.html.twig" %}
+        {% endblock fos_user_content %}
+        <br/>
+        <div class='modal-body-right'>
+            <div class="modal-social-icons">
+                <a href='{{ path('hwi_oauth_service_redirect', {'service': 'facebook' }) }}'
+                   class="btn btn-default facebook"> <i
+                            class="fa fa-facebook modal-icons"></i>
+                    Facebook </a>
+                <a href='{{ path('hwi_oauth_service_redirect', {'service': 'google' }) }}'
+                   class="btn btn-default google"> <i
+                            class="fa fa-google-plus modal-icons"></i> Google </a>
+                <a href='{{ path('hwi_oauth_service_redirect', {'service': 'facebook' }) }}'
+                   class="btn btn-default facebook"> <i
+                            class="fa fa-facebook modal-icons"></i>
+                    Twitter </a>
+                <a href='{{ path('hwi_oauth_service_redirect', {'service': 'google' }) }}'
+                   class="btn btn-default google"> <i
+                            class="fa fa-google-plus modal-icons"></i> LinkedIn </a>
             </div>
-        {% endfor %}
-    {% endfor %}
-{% endif %}
-{% block fos_user_content %}
-    {% include "FOSUserBundle:Registration:register_content.html.twig" %}
-{% endblock fos_user_content %}
+        </div>
+    </div>
+{% endblock %}
