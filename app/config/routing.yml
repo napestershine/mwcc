@@ -35,6 +35,9 @@ google_login:
 linkedin_login:
     path: /login/check-linkedin
 
+twitter_login:
+    path: /login/check-twitter
+
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
