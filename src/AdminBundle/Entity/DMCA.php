@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * DMCA
  *
- * @ORM\Table(name="d_m_c_a")
+ * @ORM\Table(name="dmca")
  * @ORM\Entity(repositoryClass="AdminBundle\Repository\DMCARepository")
  */
 class DMCA
