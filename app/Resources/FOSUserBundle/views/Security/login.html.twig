@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-    <div class="container">
+    <!--div-- class="container">
         {% include 'DiviAjaxLoginBundle:Javascript:init.html.twig' with {'form_selector': '#form-login'} %}
 
         {# Dot not forget to set the form's id attribute #form-login and link to the line above #}
@@ -19,5 +19,114 @@
                    value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}"/>
             <a href="{{ path('fos_user_resetting_request') }}">Forgot Password?</a>
         </form>
+    </div-->
+    {#
+    <br/>
+    <div class="container">
+        <div class="card contain-sm style-transparent">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <br>
+                        <span class="text-lg text-bold text-primary">MATERIAL ADMIN</span>
+                        <br><br>
+                        <form class="form floating-label" action="http://www.codecovers.eu/materialadmin/dashboards/dashboard" accept-charset="utf-8" method="post">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="username" name="username">
+                                <label for="username">Username</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" id="password" name="password">
+                                <label for="password">Password</label>
+                                <p class="help-block"><a href="#">Forgotten?</a></p>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-xs-6 text-left">
+                                    <div class="checkbox checkbox-inline checkbox-styled">
+                                        <label>
+                                            <input type="checkbox"> <span>Remember me</span>
+                                        </label>
+                                    </div>
+                                </div><!--end .col -->
+                                <div class="col-xs-6 text-right">
+                                    <button class="btn btn-primary btn-raised" type="submit">Login</button>
+                                </div><!--end .col -->
+                            </div><!--end .row -->
+                        </form>
+                    </div><!--end .col -->
+                    <div class="col-sm-5 col-sm-offset-1 text-center">
+                        <br><br>
+                        <h3 class="text-light">
+                            No account yet?
+                        </h3>
+                        <a class="btn btn-block btn-raised btn-primary" href="#">Sign up here</a>
+                        <br><br>
+                        <h3 class="text-light">
+                            or
+                        </h3>
+                        <p>
+                            <a href="#" class="btn btn-block btn-raised btn-info"><i class="fa fa-facebook pull-left"></i>Login with Facebook</a>
+                        </p>
+                        <p>
+                            <a href="#" class="btn btn-block btn-raised btn-info"><i class="fa fa-twitter pull-left"></i>Login with Twitter</a>
+                        </p>
+                    </div><!--end .col -->
+                </div><!--end .row -->
+            </div><!--end .card-body -->
+        </div>
+    </div>#}
+    <div class="container min-height">
+        <div class="row">
+            <div class="col s6">
+                <br/>
+                <span class="text-lg text-bold text-primary">Login</span>
+                <br/><br/>
+                {% include 'DiviAjaxLoginBundle:Javascript:init.html.twig' with {'form_selector': '#form-login'} %}
+
+                {# Dot not forget to set the form's id attribute #form-login and link to the line above #}
+                <form action="{{ path("fos_user_security_check") }}" method="post" id="form-login">
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}"/>
+
+                    <label for="username">{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}</label>
+                    <input placeholder="Enter Email" type="text" id="username" name="_username"
+                           value="{{ last_username }}"
+                           required="required"/>
+
+                    <label for="password">{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}</label>
+                    <input placeholder="Enter Password" type="password" id="password" name="_password"
+                           required="required"/>
+                    <br/><br/>
+
+                    <input type="submit" id="_submit" class="btn btn-success" name="_submit"
+                           value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}"/>
+                    <a href="{{ path('fos_user_resetting_request') }}">Forgot Password?</a>
+                </form>
+
+            </div>
+            <div class="col s5 col offset-s1 text-center">
+                <br><br>
+                <h5 class="text-light"> No account yet? </h5>
+                <a class="btn btn-block btn-raised btn-primary" href="#">Sign up here</a>
+                <br>
+                <h5 class="text-primary text-light">or</h5>
+                <p>
+                    <a href="#" class="btn btn-facebook"><i class="fa fa-facebook pull-left"></i>Login
+                        with Facebook</a>
+                </p>
+                <p>
+                    <a href="#" class="btn btn-google"><i class="fa fa-twitter pull-left"></i>Login
+                        with Google</a>
+                </p>
+                <p>
+                    <a href="#" class="btn btn-linkedin"><i class="fa fa-twitter pull-left"></i>Login
+                        with LinkedIn</a>
+                </p>
+                <p>
+                    <a href="#" class="btn btn-twitter"><i class="fa fa-twitter pull-left"></i>Login
+                        with Twitter</a>
+                </p>
+            </div>
+        </div>
     </div>
 {% endblock %}

@@ -13,6 +13,7 @@
           media="screen,projection"/>
     <link href="{{ asset('materializecss/css/custom.css') }}" type="text/css" rel="stylesheet"
           media="screen,projection"/>
+    <link href="{{ asset('materializecss/css/font-awesome.min.css') }}" type="text/css" rel="stylesheet"/>
 </head>
 <body>
 <nav class="white" role="navigation">
@@ -214,7 +215,6 @@
 {% endblock %}#}
 {% block body %}{% endblock %}
 {% block footer %}
-    <br/>
     <footer class="page-footer teal">
         <div class="container">
             {#
@@ -247,12 +247,17 @@
                 </div>
             </div>
         </div> #}
-            <div class="footer-copyright">
-                <div class="container">
-                    Copyright &copy; 2016 <i class=""></i><a class="brown-text text-lighten-3"
-                                                             href="{{ path('homepage') }}">MWC</a>
+            {#<div class="footer-copyright">#}
+            <div class="row no-margin padding">
+                <div class="col s4">
+                    Copyright &copy; 2016 <i class=""></i>
+                    <a class="brown-text text-lighten-3" href="{{ path('homepage') }}">MWC</a>
+                </div>
+                <div class="col s8">
+                    <a href="{{ path('web_aboutus') }}" class=" white-text">About Us</a>
                 </div>
             </div>
+        </div>
     </footer>
 {% endblock %}
 {% block javascript %}

@@ -1,0 +1,7 @@
+web_homepage:
+    path:     /
+    defaults: { _controller: WebBundle:Default:index }
+
+web_aboutus:
+    path:     /about
+    defaults: { _controller: WebBundle:Default:about }
