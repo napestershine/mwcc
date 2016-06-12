@@ -19,10 +19,10 @@
         <ul class="right hide-on-med-and-down">
             {% if app.user %}
                 <li>
-                    <a id='#'>Profile</a>
+                    <a id='#' href="{{ path('fos_user_profile_show') }}">Profile</a>
                 </li>
                 <li>
-                    <a id='#'>Courses</a>
+                    <a id='#' href="{{ path('fos_user_change_password') }}">Change Password</a>
                 </li>
                 <li><a href="{{ path('fos_user_security_logout') }}">Logout</a></li>
             {% else %}
@@ -326,8 +326,10 @@
     </div>
 {% endblock %}
 {% block footer %}
+    <br/>
     <footer class="page-footer teal">
         <div class="container">
+            {#
             <div class="row">
                 <div class="col l6 s12">
                     <h5 class="white-text">Company Bio</h5>
@@ -356,12 +358,13 @@
                     </ul>
                 </div>
             </div>
-        </div>
-        <div class="footer-copyright">
-            <div class="container">
-                Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+        </div> #}
+            <div class="footer-copyright">
+                <div class="container">
+                    Copyright &copy; 2016 <i class=""></i><a class="brown-text text-lighten-3"
+                                                             href="{{ path('homepage') }}">MWC</a>
+                </div>
             </div>
-        </div>
     </footer>
 {% endblock %}
 {% block javascript %}
