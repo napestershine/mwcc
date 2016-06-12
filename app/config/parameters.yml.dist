@@ -27,7 +27,8 @@ parameters:
     linkedin_client_id: ~
     linkedin_client_secret: ~
 
-    twiiter_client_id: ~
+    twitter_client_id: ~
+    twitter_client_id: ~
     twitter_client_secret: ~
 
 
