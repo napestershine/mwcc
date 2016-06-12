@@ -27,10 +27,12 @@
                 <li><a href="{{ path('fos_user_security_logout') }}">Logout</a></li>
             {% else %}
                 <li>
-                    <a id='launcherLogin' class="waves-effect waves-light btn modal-trigger" href="{{ path('fos_user_security_login') }}">Login</a>
+                    <a id='launcherLogin' class="waves-effect waves-light btn modal-trigger"
+                       href="{{ path('fos_user_security_login') }}">Login</a>
                 </li>
                 <li>
-                    <a id='launcherRegister' class="waves-effect waves-light btn modal-trigger" href="{{ path('fos_user_registration_register') }}">Register</a>
+                    <a id='launcherRegister' class="waves-effect waves-light btn modal-trigger"
+                       href="{{ path('fos_user_registration_register') }}">Register</a>
                 </li>
             {% endif %}
         </ul>
