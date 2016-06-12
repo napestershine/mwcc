@@ -15,12 +15,7 @@ class AboutusType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
-            ->add('file', FileType::class, array(
-                'label' => "Select Image : ",
-                'required' => false,
-            ))
-            ->add('content');
+        $builder->add('content');
     }
 
     /**

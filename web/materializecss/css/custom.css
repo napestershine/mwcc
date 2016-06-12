@@ -1,0 +1,12 @@
+.img-about
+{
+    vertical-align: middle;
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.min-height
+{
+    min-height: 400px;
+}
