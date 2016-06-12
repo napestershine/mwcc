@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
-{%  block body %}
-<div class="container">
+{% block body %}
+    <div class="container">
     {% include 'DiviAjaxLoginBundle:Javascript:init.html.twig' with {'form_selector': '#form-login'} %}
 
 {# Dot not forget to set the form's id attribute #form-login and link to the line above #}
