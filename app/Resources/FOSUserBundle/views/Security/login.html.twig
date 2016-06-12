@@ -1,4 +1,7 @@
-{% include 'DiviAjaxLoginBundle:Javascript:init.html.twig' with {'form_selector': '#form-login'} %}
+{% extends 'base.html.twig' %}
+{%  block body %}
+<div class="container">
+    {% include 'DiviAjaxLoginBundle:Javascript:init.html.twig' with {'form_selector': '#form-login'} %}
 
 {# Dot not forget to set the form's id attribute #form-login and link to the line above #}
 <form action="{{ path("fos_user_security_check") }}" method="post" id="form-login">
@@ -13,3 +16,5 @@
 
     <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}"/>
 </form>
+</div>
+{% endblock %}

@@ -92,13 +92,13 @@ fos_user:
         confirmation:
             enabled: true
             from_email:
-                address:        admin@bizz.com
+                address:        admin@mwc.com
                 sender_name:    Admin
     resetting:
         email:
             template: email/password_resetting.html.twig
             from_email:
-                address:        reset@bizz.com
+                address:        reset@mwc .com
                 sender_name:    Reset
 
 hwi_oauth:

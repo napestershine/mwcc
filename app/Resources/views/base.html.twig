@@ -27,10 +27,10 @@
                 <li><a href="{{ path('fos_user_security_logout') }}">Logout</a></li>
             {% else %}
                 <li>
-                    <a id='launcherLogin' class="waves-effect waves-light btn modal-trigger" href="#login">Login</a>
+                    <a id='launcherLogin' class="waves-effect waves-light btn modal-trigger" href="{{ path('fos_user_security_login') }}">Login</a>
                 </li>
                 <li>
-                    <a id='launcherRegister' class="waves-effect waves-light btn modal-trigger" href="#register">Register</a>
+                    <a id='launcherRegister' class="waves-effect waves-light btn modal-trigger" href="{{ path('fos_user_registration_register') }}">Register</a>
                 </li>
             {% endif %}
         </ul>
@@ -60,7 +60,7 @@
         <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
 </nav>
-{% block loginModal %}
+{#% block loginModal %}
     <div id="login" class="modal">
         <div class="modal-content">
             <h4 class="center">Login</h4>
@@ -79,9 +79,9 @@
                             class="fa fa-google-plus modal-icons"></i> Sign In with Google </a>
             </div>
         </div>
-        {#<div class="modal-footer">
+        { # <div class="modal-footer">
             <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-        </div>#}
+        </div> # }
     </div>
 {% endblock %}
 {% block registerModal %}
@@ -103,11 +103,11 @@
                 </div>
             </div>
         </div>
-        {#<div class="modal-footer">
+        { # <div class="modal-footer">
             <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-        </div>#}
+        </div> # }
     </div>
-{% endblock %}
+{% endblock % #}
 {#{% block body %}
     {% block login %}
         <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
@@ -368,7 +368,7 @@
     <script src="{{ asset('materializecss/js/materialize.js') }}"></script>
     <script src="{{ asset('materializecss/js/init.js') }}"></script>
 {% endblock %}
-{% block ajaxmodal %}
+{#% block ajaxmodal %}
     <script type="text/javascript">
         $(document).ready(function () {
 
@@ -400,6 +400,6 @@
             });
         });
     </script>
-{% endblock %}
+{% endblock % #}
 </body>
 </html>
