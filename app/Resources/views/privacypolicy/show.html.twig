@@ -1,31 +1,30 @@
 {% extends 'adminbase.html.twig' %}
 
-{% block pageheader %}About Us{% endblock %}
+{% block pageheader %}Privacy Policy{% endblock %}
 {% block container %}
-
     <table>
         <tbody>
             <tr>
                 <th>Id</th>
-                <td>{{ aboutus.id }}</td>
+                <td>{{ privacyPolicy.id }}</td>
             </tr>
             <tr>
-                <th>Image</th>
-                <td>{{ aboutus.image }}</td>
+                <th>Title</th>
+                <td>{{ privacyPolicy.title }}</td>
             </tr>
             <tr>
                 <th>Content</th>
-                <td>{{ aboutus.content }}</td>
+                <td>{{ privacyPolicy.content }}</td>
             </tr>
         </tbody>
     </table>
 
     <ul>
         <li>
-            <a href="{{ path('aboutus_index') }}">Back to the list</a>
+            <a href="{{ path('privacypolicy_index') }}">Back to the list</a>
         </li>
         <li>
-            <a href="{{ path('aboutus_edit', { 'id': aboutus.id }) }}">Edit</a>
+            <a href="{{ path('privacypolicy_edit', { 'id': privacyPolicy.id }) }}">Edit</a>
         </li>
         <li>
             {{ form_start(delete_form) }}

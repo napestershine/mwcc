@@ -1,3 +1,7 @@
+wishlist:
+    resource: "@WishlistBundle/Resources/config/routing.yml"
+    prefix:   /wishlist
+
 admin:
     resource: "@AdminBundle/Resources/config/routing.yml"
     prefix:   /admin

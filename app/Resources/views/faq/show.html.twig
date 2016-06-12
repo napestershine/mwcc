@@ -1,31 +1,30 @@
 {% extends 'adminbase.html.twig' %}
 
-{% block pageheader %}About Us{% endblock %}
+{% block pageheader %}FAQ{% endblock %}
 {% block container %}
-
     <table>
         <tbody>
             <tr>
                 <th>Id</th>
-                <td>{{ aboutus.id }}</td>
+                <td>{{ faq.id }}</td>
             </tr>
             <tr>
-                <th>Image</th>
-                <td>{{ aboutus.image }}</td>
+                <th>Question</th>
+                <td>{{ faq.question }}</td>
             </tr>
             <tr>
-                <th>Content</th>
-                <td>{{ aboutus.content }}</td>
+                <th>Answer</th>
+                <td>{{ faq.answer }}</td>
             </tr>
         </tbody>
     </table>
 
     <ul>
         <li>
-            <a href="{{ path('aboutus_index') }}">Back to the list</a>
+            <a href="{{ path('faq_index') }}">Back to the list</a>
         </li>
         <li>
-            <a href="{{ path('aboutus_edit', { 'id': aboutus.id }) }}">Edit</a>
+            <a href="{{ path('faq_edit', { 'id': faq.id }) }}">Edit</a>
         </li>
         <li>
             {{ form_start(delete_form) }}

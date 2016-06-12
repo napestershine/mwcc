@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class AboutusType extends AbstractType
+class BannerType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -16,6 +16,7 @@ class AboutusType extends AbstractType
     {
         $builder
             ->add('image')
+            ->add('title')
             ->add('content')
         ;
     }
@@ -26,7 +27,7 @@ class AboutusType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AdminBundle\Entity\Aboutus'
+            'data_class' => 'AdminBundle\Entity\Banner'
         ));
     }
 }

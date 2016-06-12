@@ -5,12 +5,12 @@ namespace AdminBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Aboutus
+ * Contactus
  *
- * @ORM\Table(name="aboutus")
- * @ORM\Entity(repositoryClass="AdminBundle\Repository\AboutusRepository")
+ * @ORM\Table(name="contactus")
+ * @ORM\Entity(repositoryClass="AdminBundle\Repository\ContactusRepository")
  */
-class Aboutus
+class Contactus
 {
     /**
      * @var int
@@ -24,9 +24,9 @@ class Aboutus
     /**
      * @var string
      *
-     * @ORM\Column(name="image", type="string", length=255, nullable=true)
+     * @ORM\Column(name="title", type="text")
      */
-    private $image;
+    private $title;
 
     /**
      * @var string
@@ -47,27 +47,27 @@ class Aboutus
     }
 
     /**
-     * Set image
+     * Set title
      *
-     * @param string $image
+     * @param string $title
      *
-     * @return Aboutus
+     * @return Contactus
      */
-    public function setImage($image)
+    public function setTitle($title)
     {
-        $this->image = $image;
+        $this->title = $title;
 
         return $this;
     }
 
     /**
-     * Get image
+     * Get title
      *
      * @return string
      */
-    public function getImage()
+    public function getTitle()
     {
-        return $this->image;
+        return $this->title;
     }
 
     /**
@@ -75,7 +75,7 @@ class Aboutus
      *
      * @param string $content
      *
-     * @return Aboutus
+     * @return Contactus
      */
     public function setContent($content)
     {

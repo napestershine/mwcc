@@ -1,7 +1,8 @@
 {% extends 'adminbase.html.twig' %}
 
-{% block pageheader %}New About Us{% endblock %}
+{% block pageheader %}New FAQ{% endblock %}
 {% block container %}
+    <h1>Faq creation</h1>
 
     {{ form_start(form) }}
         {{ form_widget(form) }}
@@ -10,7 +11,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('aboutus_index') }}">Back to the list</a>
+            <a href="{{ path('faq_index') }}">Back to the list</a>
         </li>
     </ul>
 {% endblock %}

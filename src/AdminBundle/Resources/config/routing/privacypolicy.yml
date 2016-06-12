@@ -1,0 +1,24 @@
+privacypolicy_index:
+    path:     /
+    defaults: { _controller: "AdminBundle:PrivacyPolicy:index" }
+    methods:  GET
+
+privacypolicy_show:
+    path:     /{id}/show
+    defaults: { _controller: "AdminBundle:PrivacyPolicy:show" }
+    methods:  GET
+
+privacypolicy_new:
+    path:     /new
+    defaults: { _controller: "AdminBundle:PrivacyPolicy:new" }
+    methods:  [GET, POST]
+
+privacypolicy_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AdminBundle:PrivacyPolicy:edit" }
+    methods:  [GET, POST]
+
+privacypolicy_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AdminBundle:PrivacyPolicy:delete" }
+    methods:  DELETE

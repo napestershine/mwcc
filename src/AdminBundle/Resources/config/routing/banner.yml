@@ -1,0 +1,24 @@
+banner_index:
+    path:     /
+    defaults: { _controller: "AdminBundle:Banner:index" }
+    methods:  GET
+
+banner_show:
+    path:     /{id}/show
+    defaults: { _controller: "AdminBundle:Banner:show" }
+    methods:  GET
+
+banner_new:
+    path:     /new
+    defaults: { _controller: "AdminBundle:Banner:new" }
+    methods:  [GET, POST]
+
+banner_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AdminBundle:Banner:edit" }
+    methods:  [GET, POST]
+
+banner_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AdminBundle:Banner:delete" }
+    methods:  DELETE

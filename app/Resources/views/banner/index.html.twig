@@ -1,6 +1,6 @@
 {% extends 'adminbase.html.twig' %}
 
-{% block pageheader %}All About Us{% endblock %}
+{% block pageheader %}All Banners{% endblock %}
 {% block container %}
 
     <table>
@@ -8,23 +8,25 @@
             <tr>
                 <th>Id</th>
                 <th>Image</th>
+                <th>Title</th>
                 <th>Content</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
-        {% for aboutus in aboutuses %}
+        {% for banner in banners %}
             <tr>
-                <td><a href="{{ path('aboutus_show', { 'id': aboutus.id }) }}">{{ aboutus.id }}</a></td>
-                <td>{{ aboutus.image }}</td>
-                <td>{{ aboutus.content }}</td>
+                <td><a href="{{ path('banner_show', { 'id': banner.id }) }}">{{ banner.id }}</a></td>
+                <td>{{ banner.image }}</td>
+                <td>{{ banner.title }}</td>
+                <td>{{ banner.content }}</td>
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('aboutus_show', { 'id': aboutus.id }) }}">show</a>
+                            <a href="{{ path('banner_show', { 'id': banner.id }) }}">show</a>
                         </li>
                         <li>
-                            <a href="{{ path('aboutus_edit', { 'id': aboutus.id }) }}">edit</a>
+                            <a href="{{ path('banner_edit', { 'id': banner.id }) }}">edit</a>
                         </li>
                     </ul>
                 </td>
@@ -35,7 +37,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('aboutus_new') }}">Create a new entry</a>
+            <a href="{{ path('banner_new') }}">Create a new entry</a>
         </li>
     </ul>
 {% endblock %}

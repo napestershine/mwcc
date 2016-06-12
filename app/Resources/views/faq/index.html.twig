@@ -1,0 +1,40 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block pageheader %}All FAQs{% endblock %}
+{% block container %}
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Question</th>
+                <th>Answer</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for faq in faqs %}
+            <tr>
+                <td><a href="{{ path('faq_show', { 'id': faq.id }) }}">{{ faq.id }}</a></td>
+                <td>{{ faq.question }}</td>
+                <td>{{ faq.answer }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('faq_show', { 'id': faq.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('faq_edit', { 'id': faq.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('faq_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

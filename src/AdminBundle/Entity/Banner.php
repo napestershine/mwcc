@@ -5,12 +5,12 @@ namespace AdminBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Aboutus
+ * Banner
  *
- * @ORM\Table(name="aboutus")
- * @ORM\Entity(repositoryClass="AdminBundle\Repository\AboutusRepository")
+ * @ORM\Table(name="banner")
+ * @ORM\Entity(repositoryClass="AdminBundle\Repository\BannerRepository")
  */
-class Aboutus
+class Banner
 {
     /**
      * @var int
@@ -24,14 +24,21 @@ class Aboutus
     /**
      * @var string
      *
-     * @ORM\Column(name="image", type="string", length=255, nullable=true)
+     * @ORM\Column(name="image", type="string", length=255)
      */
     private $image;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="content", type="text")
+     * @ORM\Column(name="title", type="text")
+     */
+    private $title;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="content", type="string", length=255)
      */
     private $content;
 
@@ -51,7 +58,7 @@ class Aboutus
      *
      * @param string $image
      *
-     * @return Aboutus
+     * @return Banner
      */
     public function setImage($image)
     {
@@ -71,11 +78,35 @@ class Aboutus
     }
 
     /**
+     * Set title
+     *
+     * @param string $title
+     *
+     * @return Banner
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * Get title
+     *
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
      * Set content
      *
      * @param string $content
      *
-     * @return Aboutus
+     * @return Banner
      */
     public function setContent($content)
     {
