@@ -1,7 +1,7 @@
-{% extends 'base.html.twig' %}
+{% extends 'adminbase.html.twig' %}
 
-{% block body %}
-    <h1>Terms creation</h1>
+{% block pageheader %}New Term{% endblock %}
+{% block container %}
 
     {{ form_start(form) }}
         {{ form_widget(form) }}

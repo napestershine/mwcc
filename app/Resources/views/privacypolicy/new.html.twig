@@ -1,8 +1,7 @@
-{% extends 'base.html.twig' %}
+{% extends 'adminbase.html.twig' %}
 
-{% block body %}
-    <h1>PrivacyPolicy creation</h1>
-
+{% block pageheader %}New Privacy Policy{% endblock %}
+{% block container %}
     {{ form_start(form) }}
         {{ form_widget(form) }}
         <input type="submit" value="Create" />
