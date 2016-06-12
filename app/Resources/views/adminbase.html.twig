@@ -38,6 +38,38 @@
             </div>
         </li>#}
         <li class="bold"><a href="{{ path('category_index') }}" class="waves-effect waves-teal">Category</a></li>
+        <li class="bold"><a href="{{ path('aboutus_index') }}" class="collapsible-header  waves-effect waves-teal">About Us</a>
+        <li class="bold"><a href="{{ path('contactus_index') }}" class="collapsible-header  waves-effect waves-teal">Contact Us</a>
+        <li class="bold"><a href="{{ path('banner_index') }}" class="collapsible-header  waves-effect waves-teal">Banner</a>
+        <li class="no-padding">
+            <ul class="collapsible collapsible-accordion">
+                <li class="bold"><a class="collapsible-header  waves-effect waves-teal">Privacy Policy</a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li><a href="{{ path('privacypolicy_new') }}">New Policy</a></li>
+                            <li><a href="{{ path('privacypolicy_index') }}">All Policies</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="bold"><a class="collapsible-header  waves-effect waves-teal">Terms</a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li><a href="{{ path('terms_new') }}">New Term</a></li>
+                            <li><a href="{{ path('terms_index') }}">All Terms</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="bold"><a class="collapsible-header  waves-effect waves-teal">FAQ</a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li><a href="{{ path('faq_new') }}">New Question</a></li>
+                            <li><a href="{{ path('faq_index') }}">All FAQs</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </li>
+        <li class="bold"><a href="{{ path('dmca_index') }}" class="collapsible-header  waves-effect waves-teal">DMCA</a>
         {#<li class="bold"><a href="getting-started.html" class="waves-effect waves-teal">Getting Started</a></li>#}
         {#  <li class="no-padding">
               <ul class="collapsible collapsible-accordion">
