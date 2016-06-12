@@ -1,0 +1,24 @@
+faq_index:
+    path:     /
+    defaults: { _controller: "AdminBundle:Faq:index" }
+    methods:  GET
+
+faq_show:
+    path:     /{id}/show
+    defaults: { _controller: "AdminBundle:Faq:show" }
+    methods:  GET
+
+faq_new:
+    path:     /new
+    defaults: { _controller: "AdminBundle:Faq:new" }
+    methods:  [GET, POST]
+
+faq_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AdminBundle:Faq:edit" }
+    methods:  [GET, POST]
+
+faq_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AdminBundle:Faq:delete" }
+    methods:  DELETE

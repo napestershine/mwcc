@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>PrivacyPolicy list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Content</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for privacyPolicy in privacyPolicies %}
+            <tr>
+                <td><a href="{{ path('privacypolicy_show', { 'id': privacyPolicy.id }) }}">{{ privacyPolicy.id }}</a></td>
+                <td>{{ privacyPolicy.title }}</td>
+                <td>{{ privacyPolicy.content }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('privacypolicy_show', { 'id': privacyPolicy.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('privacypolicy_edit', { 'id': privacyPolicy.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('privacypolicy_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

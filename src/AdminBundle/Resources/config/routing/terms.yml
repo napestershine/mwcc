@@ -1,0 +1,24 @@
+terms_index:
+    path:     /
+    defaults: { _controller: "AdminBundle:Terms:index" }
+    methods:  GET
+
+terms_show:
+    path:     /{id}/show
+    defaults: { _controller: "AdminBundle:Terms:show" }
+    methods:  GET
+
+terms_new:
+    path:     /new
+    defaults: { _controller: "AdminBundle:Terms:new" }
+    methods:  [GET, POST]
+
+terms_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AdminBundle:Terms:edit" }
+    methods:  [GET, POST]
+
+terms_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AdminBundle:Terms:delete" }
+    methods:  DELETE

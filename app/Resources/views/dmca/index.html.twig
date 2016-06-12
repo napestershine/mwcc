@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>DMCA list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Content</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for dMCA in dMCAs %}
+            <tr>
+                <td><a href="{{ path('dmca_show', { 'id': dMCA.id }) }}">{{ dMCA.id }}</a></td>
+                <td>{{ dMCA.title }}</td>
+                <td>{{ dMCA.content }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('dmca_show', { 'id': dMCA.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('dmca_edit', { 'id': dMCA.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('dmca_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

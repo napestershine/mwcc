@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Contactus list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Content</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for contactus in contactuses %}
+            <tr>
+                <td><a href="{{ path('contactus_show', { 'id': contactus.id }) }}">{{ contactus.id }}</a></td>
+                <td>{{ contactus.title }}</td>
+                <td>{{ contactus.content }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('contactus_show', { 'id': contactus.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('contactus_edit', { 'id': contactus.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('contactus_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}
