@@ -23,5 +23,24 @@
         {% block fos_user_content %}
             {% include "FOSUserBundle:Registration:register_content.html.twig" %}
         {% endblock fos_user_content %}
+        <br/>
+        <div class='modal-body-right'>
+            <div class="modal-social-icons">
+                <a href='{{ path('hwi_oauth_service_redirect', {'service': 'facebook' }) }}'
+                   class="btn btn-default facebook"> <i
+                            class="fa fa-facebook modal-icons"></i>
+                    Facebook </a>
+                <a href='{{ path('hwi_oauth_service_redirect', {'service': 'google' }) }}'
+                   class="btn btn-default google"> <i
+                            class="fa fa-google-plus modal-icons"></i> Google </a>
+                <a href='{{ path('hwi_oauth_service_redirect', {'service': 'facebook' }) }}'
+                   class="btn btn-default facebook"> <i
+                            class="fa fa-facebook modal-icons"></i>
+                    Twitter </a>
+                <a href='{{ path('hwi_oauth_service_redirect', {'service': 'google' }) }}'
+                   class="btn btn-default google"> <i
+                            class="fa fa-google-plus modal-icons"></i> LinkedIn </a>
+            </div>
+        </div>
     </div>
 {% endblock %}
