@@ -1,3 +1,7 @@
+admin_aboutus:
+    resource: "@AdminBundle/Resources/config/routing/aboutus.yml"
+    prefix:   /aboutus
+
 admin_category:
     resource: "@AdminBundle/Resources/config/routing/category.yml"
     prefix:   /category

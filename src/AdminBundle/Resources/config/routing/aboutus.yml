@@ -1,0 +1,24 @@
+aboutus_index:
+    path:     /
+    defaults: { _controller: "AdminBundle:Aboutus:index" }
+    methods:  GET
+
+aboutus_show:
+    path:     /{id}/show
+    defaults: { _controller: "AdminBundle:Aboutus:show" }
+    methods:  GET
+
+aboutus_new:
+    path:     /new
+    defaults: { _controller: "AdminBundle:Aboutus:new" }
+    methods:  [GET, POST]
+
+aboutus_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AdminBundle:Aboutus:edit" }
+    methods:  [GET, POST]
+
+aboutus_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AdminBundle:Aboutus:delete" }
+    methods:  DELETE

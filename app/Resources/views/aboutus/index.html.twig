@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Aboutus list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Content</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for aboutus in aboutuses %}
+            <tr>
+                <td><a href="{{ path('aboutus_show', { 'id': aboutus.id }) }}">{{ aboutus.id }}</a></td>
+                <td>{{ aboutus.content }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('aboutus_show', { 'id': aboutus.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('aboutus_edit', { 'id': aboutus.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('aboutus_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}
