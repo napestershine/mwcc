@@ -100,7 +100,7 @@ fos_user:
         email:
             template: email/password_resetting.html.twig
             from_email:
-                address:        reset@mwc .com
+                address:        reset@mwc.com
                 sender_name:    Reset
 
 hwi_oauth:
